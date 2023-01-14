@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.mainContainer{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    
+}
+
+.listCategories{
+    width: 10%;
+}
+.productContainer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.image-resize{
+    height: 300px;
+    width: 400px;
+    object-fit: scale-down;
+    object-fit: center center;
+}
+.productCard{
+    text-align: center;
+}
+
+h3{
+    text-align: center;
+}
+
+.product-title{
+    margin-top: 10px;
+    font-size: 20px;
+}
