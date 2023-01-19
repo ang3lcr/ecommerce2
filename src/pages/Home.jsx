@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom';
 import ProductDetail from './ProductDetail';
 import '../styles/home.css'
+import { addToCartThunk } from '../store/slices/cart.slice';
 
 const Home = () => {
 
@@ -34,7 +35,11 @@ const Home = () => {
     setProductsFiltered(filteredProducts);
   }
 
-  console.log(productsFiltered);
+  const addToCart = () => {const product = {id: product.id, quantity: 1,}
+  dispatch(addToCartThunk(product))
+   }
+
+
 
   return (
     <div>
@@ -68,12 +73,25 @@ const Home = () => {
           <div className='productContainer'>
           {productsFiltered.map(product => (
              <div className="productCard" onClick={() => navigate(`/product/${product.id}`)}>
-                <img src={product.productImgs[0]} alt="" className='image-resize' />
+              <div className="imgContainer">
+                <img src={product.productImgs[0]} alt=""/>
+              </div>
                 <div className="bodyCard">
                   <p style={{textAlign: "center"}} className="product-title">
                   {product.title}
                   </p>
-                  </div>
+                </div>
+
+              <div className="extra">
+                <div className="price">
+                  ${product.price}
+                </div>
+                <div className="btn1">
+                  <Button onClick={addToCart}>+</Button>
+                </div>
+              </div>
+
+
               </div>
               
             ))}
